@@ -1,8 +1,8 @@
 ---
-name: architecture-review
+name: cleany-review
 description: Review existing or AI-generated code for architectural clarity, human readability, responsibility boundaries, natural extension points and substitutability. Use for architecture reviews, readability reviews, design critiques, or reviewing generated changes before merging. Not a general bug or security review.
 ---
-# Architecture Review
+# Cleany Review
 
 Good code is beautiful code: it makes the underlying problem easier to understand, not merely executable. Beauty means clarity, coherence, economy and natural decomposition, not personal style.
 
