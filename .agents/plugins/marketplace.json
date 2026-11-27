@@ -1,0 +1,21 @@
+{
+  "name": "cleany-code",
+  "interface": {
+    "displayName": "Cleany Code"
+  },
+  "plugins": [
+    {
+      "name": "cleany-code",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/tarassov/cleany-code.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "cleany-code",
+  "version": "0.1.0",
+  "description": "Agent skills for code review and architectural clarity.",
+  "repository": "https://github.com/tarassov/cleany-code",
+  "author": {
+    "name": "tarassov"
+  }
+}

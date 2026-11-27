@@ -6,7 +6,31 @@ A collection of agent skills for Codex and Claude Code.
 | --- | --- |
 | [cleany-review](skills/cleany-review/SKILL.md) | Reviews existing and AI-generated code for readability, architectural clarity, and ease of change. Reviews are read-only by default. |
 
-## Install
+## Install the plugin
+
+The plugin installs all bundled skills. Use the same commands on Windows, macOS, and Linux.
+
+### Codex
+
+```sh
+codex plugin marketplace add tarassov/cleany-code
+codex plugin add cleany-code@cleany-code
+```
+
+Start a new Codex session to use the skill.
+
+### Claude Code
+
+Run each command separately in Claude Code.
+
+```text
+/plugin marketplace add tarassov/cleany-code
+/plugin install cleany-code@cleany-code
+```
+
+Run `/reload-plugins` or start a new session to load the plugin.
+
+## Install standalone skills
 
 Clone the repository once.
 
@@ -61,6 +85,6 @@ See the [Codex skills documentation](https://learn.chatgpt.com/docs/build-skills
 
 ## Usage
 
-In Codex, ask “Use $cleany-review to review the checkout module. Keep the review read-only.” In Claude Code, run `/cleany-review` with the diff, module, or subsystem to review.
+In Codex, ask “Use $cleany-review to review the checkout module. Keep the review read-only.” In Claude Code, use `/cleany-code:cleany-review` after plugin installation or `/cleany-review` after standalone installation. Pass the diff, module, or subsystem to review.
 
 The report starts with the Middle Developer Test and provides evidence-backed findings. It compares current and proposed architecture with diagrams when a redesign is warranted.

@@ -1,0 +1,14 @@
+{
+  "name": "cleany-code",
+  "owner": {
+    "name": "tarassov"
+  },
+  "plugins": [
+    {
+      "name": "cleany-code",
+      "source": "./",
+      "description": "Agent skills for code review and architectural clarity."
+    }
+  ],
+  "description": "Agent skills for code review and architectural clarity."
+}
