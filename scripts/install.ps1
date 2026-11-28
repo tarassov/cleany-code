@@ -1,6 +1,6 @@
 param(
     [Parameter(Mandatory = $true)]
-    [ValidateSet('codex', 'claude')]
+    [ValidateSet('codex', 'claude', 'antigravity')]
     [string]$Client,
 
     [ValidateSet('user', 'project')]
@@ -12,7 +12,13 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$clientDir = if ($Client -eq 'codex') { '.agents' } else { '.claude' }
+$clientDir = switch ($Client) {
+    'codex' { '.agents' }
+    'claude' { '.claude' }
+    'antigravity' {
+        if ($Scope -eq 'user') { Join-Path '.gemini' 'config' } else { '.agents' }
+    }
+}
 $basePath = if ($Scope -eq 'user') { $HOME } else { (Get-Location).ProviderPath }
 $installRoot = Join-Path (Join-Path $basePath $clientDir) 'skills'
 $sourceRoot = Join-Path (Split-Path -Parent $PSScriptRoot) 'skills'

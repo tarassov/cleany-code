@@ -2,19 +2,20 @@
 set -euo pipefail
 
 if (( $# < 1 || $# > 3 )); then
-    echo "Usage: bash install.sh {codex|claude} [user|project] [skill-name]" >&2
+    echo "Usage: bash install.sh {codex|claude|antigravity} [user|project] [skill-name]" >&2
     exit 1
 fi
 
 case "$1" in
-    codex) client_dir=.agents ;;
-    claude) client_dir=.claude ;;
+    codex) user_dir=.agents; project_dir=.agents ;;
+    claude) user_dir=.claude; project_dir=.claude ;;
+    antigravity) user_dir=.gemini/config; project_dir=.agents ;;
     *) echo "Unknown client: $1" >&2; exit 1 ;;
 esac
 
 case "${2:-user}" in
-    user) install_root="$HOME/$client_dir/skills" ;;
-    project) install_root="$PWD/$client_dir/skills" ;;
+    user) install_root="$HOME/$user_dir/skills" ;;
+    project) install_root="$PWD/$project_dir/skills" ;;
     *) echo "Unknown scope: $2" >&2; exit 1 ;;
 esac
 
