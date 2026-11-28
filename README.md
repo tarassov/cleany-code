@@ -87,4 +87,4 @@ See the [Codex skills documentation](https://learn.chatgpt.com/docs/build-skills
 
 In Codex, ask “Use $cleany-review to review the checkout module. Keep the review read-only.” In Claude Code, use `/cleany-code:cleany-review` after plugin installation or `/cleany-review` after standalone installation. Pass the diff, module, or subsystem to review.
 
-The report starts with the Middle Developer Test and provides evidence-backed findings. It compares current and proposed architecture with diagrams when a redesign is warranted.
+The report starts with a readability score from 0 to 100 based on the Middle Developer Test, then gives evidence-backed findings and a separate verdict. It compares current and proposed architecture with diagrams when a redesign is warranted.

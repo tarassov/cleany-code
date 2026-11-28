@@ -17,3 +17,15 @@ Use patterns as vocabulary for solving observed problems, never as a mandatory c
 | Behavior layers around a stable contract | Decorator | A straightforward function composition suffices |
 
 For each recommendation explain the concrete issue, why the pattern reduces cognitive cost, and the cost of the new indirection. Never invent a second implementation simply to demonstrate a pattern.
+
+## Antipatterns
+
+Use these examples to guide investigation. Trace the affected behavior before recommending a fix.
+
+| Antipattern | Evidence to look for | Common false positive |
+|---|---|---|
+| Spaghetti code | Trace one representative operation from entry to outcome. Look for control jumping between modules, implicit ordering, or shared mutable state that hides which step runs next or which code changes the result. Identify the specific path or state dependency that makes a change hard to reason about. | A complex workflow with explicit transitions, predictable execution order, and clear state ownership |
+| God object | One object owns unrelated decisions or state, forcing independent responsibilities to change together | A large orchestrator that delegates decisions to their owners |
+| Shotgun surgery | A single rule change requires coordinated edits in multiple places because each encodes part of the same decision | A deliberate contract change that naturally updates callers and tests |
+| Leaky abstraction | Callers depend on an abstraction's implementation details, such as translating provider-specific errors themselves | A thin wrapper whose public contract intentionally exposes the underlying API |
+| Speculative generality | An extension point serves no current requirement and makes callers supply configuration or follow an extra layer | A single implementation behind a boundary needed for a current integration or contract |
